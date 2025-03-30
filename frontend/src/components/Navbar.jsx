@@ -41,12 +41,12 @@ const Navbar = () => {
               </button>
               {
                 isDropdownOpen && (
-                  <div>
-                    <ul>
+                  <div className='absolute right-8 mt-2 bg-white shadow-md rounded-md z-40 w-32'>
+                    <ul className='py-2'>
                       {
                         Navigation.map((item)=>(
-                          <li key={item.name} >
-                            <Link to={item.href}>
+                          <li key={item.name} className='hover:bg-gray-100 px-2 py-2 text-sm font-primary'>
+                            <Link to={item.href} onClick={()=> setIsDropdownOpen(false)}>
                               {item.name}
                             </Link>                            
                           </li>
