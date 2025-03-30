@@ -2,6 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import { HiMiniBars3CenterLeft } from "react-icons/hi2";
 import { IoSearchOutline } from "react-icons/io5";
+import { HiOutlineUser } from "react-icons/hi2";
+import { MdOutlineFavoriteBorder } from "react-icons/md";
+import { HiOutlineShoppingCart } from "react-icons/hi";
 
 const Navbar = () => {
   return (
@@ -9,7 +12,7 @@ const Navbar = () => {
       <nav className='flex justify-between items-center'>
         <div className='flex items-center md:gap-14 gap-4'>
           <Link to="/">
-            <HiMiniBars3CenterLeft />
+            <HiMiniBars3CenterLeft className='size-6' />
           </Link>
 
           <div className='relative sm:w-56 w-36 space-x-1'>
@@ -18,7 +21,15 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div>NAv items</div>
+        <div className='flex items-center md:gap-2 gap-2'>
+         <HiOutlineUser className='size-6'/>
+         <button className='hidden sm:block'><MdOutlineFavoriteBorder className='size-6'/></button>
+         
+         <Link to='/cart' className='bg-primary rounded-md sm:px-6 py-1 flex items-center gap-1'>
+            <HiOutlineShoppingCart className='size-6'/>
+            <span>0</span>
+         </Link>
+        </div>
       </nav>
     </header>
   )
