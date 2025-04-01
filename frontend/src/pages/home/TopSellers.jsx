@@ -17,9 +17,9 @@ const TopSellers = () => {
       
       {/* category filter */}
       <div>
-        <select name="category" id="category" className=' bg-gray-100 p-2 inline-block rounded-md text-sm'>
+        <select name="category" id="category" className=' bg-gray-100 p-2 text-sm focus:outline-none border border-gray-100 rounded-md'>
           {categories.map((category, index) => (
-            <option key={index} value={category}>{category}</option>
+            <option key={index} value={category} >{category}</option>
           ))}
         </select>
       </div>
