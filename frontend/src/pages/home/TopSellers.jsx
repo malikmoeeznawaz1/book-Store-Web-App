@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
+const categories = ["Choose a genre", "Fiction", "Horror", "Adventure"]
+
 const TopSellers = () => {
   const [books, setBooks] = useState([]);
 
@@ -10,7 +12,18 @@ const TopSellers = () => {
   },[])
 
   return (
-    <div>Top Sellers</div>
+    <div className='py-4'>
+      <h2 className='text-xl font-semibold mb-3'> Top Sellers</h2>
+      
+      {/* category filter */}
+      <div>
+        <select name="category" id="category" className=' bg-gray-100 p-2 inline-block rounded-md text-sm'>
+          {categories.map((category, index) => (
+            <option key={index} value={category}>{category}</option>
+          ))}
+        </select>
+      </div>
+    </div>
   )
 }
 
