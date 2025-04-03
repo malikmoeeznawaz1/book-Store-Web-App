@@ -1,9 +1,9 @@
 import React from 'react'
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
+import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
-import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 import news1 from '../../assets/news/news-1.png';
 import news2 from '../../assets/news/news-2.png';
@@ -51,31 +51,29 @@ const News = () => {
 
       <Swiper
         slidesPerView={1}
-        spaceBetween={10}
-        pagination={{
-          clickable: true,
-        }}
+        spaceBetween={30}
+        navigation={true}
         breakpoints={{
           640: {
-            slidesPerView: 2,
+            slidesPerView: 1,
             spaceBetween: 20,
           },
           768: {
-            slidesPerView: 4,
+            slidesPerView: 1,
             spaceBetween: 40,
           },
           1024: {
-            slidesPerView: 5,
+            slidesPerView: 2,
             spaceBetween: 50,
           },
         }}
-        modules={[Pagination]}
+        modules={[Pagination, Navigation]}
         className="mySwiper"
       >
         {
             news.map((item, index)=>(
               <SwiperSlide key={index}>
-                <div>
+                <div className='flex flex-col sm:flex-row sm:justify-between items-center gap-12'>
                   <div className='py-2'>
 
                     {/* content */}
@@ -83,10 +81,10 @@ const News = () => {
                         <h3 className='text-md font-medium hover:text-blue-500 mb-2'> {item.title} </h3>
                       </Link>
                       <div className="w-20 h-[4px] bg-primary mb-4"></div>
-                      <p className='text-sm text-gray-600'>{item.description}</p>
+                      <p className='text-sm text-gray-600 px-1'>{item.description}</p>
                   </div>
 
-                  <div>
+                  <div className='flex-shrink-0'>
                     {/* Image */}
                     <img src={item.image} alt="" className='w-full object-cover'/>
                   </div>
